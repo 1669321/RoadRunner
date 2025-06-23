@@ -1,0 +1,18 @@
+# detectors.yaml
+- name: traffic_signs
+  weights: models/traffic_signs.tflite
+  classes:
+    [
+      "stop",
+      "speed_20",
+      "speed_30",
+      "speed_50",
+      "speed_60",
+      "speed_70",
+      "speed_80",
+      "speed_100",
+      "speed_120",
+      "yield",
+      "pedestrian",
+    ]
+  imgsz: 416
