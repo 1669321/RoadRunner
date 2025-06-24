@@ -15,8 +15,8 @@ def detect_lane_center_poly(frame):
         
         # Ahora filtrar blanco sobre la imagen ecualizada (color de las líneas)
         hsv2 = cv2.cvtColor(img_eq, cv2.COLOR_BGR2HSV)
-        lower_white = np.array([0, 0, 210])
-        upper_white = np.array([210, 80, 255])
+        lower_white = np.array([0, 0, 200])
+        upper_white = np.array([200, 80, 255])
         mask = cv2.inRange(hsv2, lower_white, upper_white)
 
         # Morfología para limpiar ruido

@@ -7,7 +7,7 @@ cv2.resizeWindow("Original | Carriles Detectados", 1000, 1000)          # tamañ
 # Cargar imagen original
 #original = cv2.imread("./ims/im2.jpg")
 #original = cv2.imread("./ims/im3.jpeg")
-original = cv2.imread("./ims/im4.jpg")
+original = cv2.imread("./ims/im6.jpg")
 
 # Procesar para detectar carriles
 processed, lane_detected, lateral_error = detect_lane_center_poly(original.copy())
