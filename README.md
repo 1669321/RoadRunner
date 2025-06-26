@@ -6,7 +6,7 @@ y visión por computadora, inspirado en el estilo del proyecto PythonRobotics.
 -->
 
 # RoadRunner  
-Sistema de conducción autónoma con visión por computadora
+Sistema de conducción autónoma con visión por computador
 
 ---
 
