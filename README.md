@@ -43,24 +43,25 @@ Sistema de conducción autónoma con visión por computadora
 
 ## Tecnologías utilizadas
 
-- Python 3.9+
-- OpenCV (visión por computadora)
-- TensorFlow / PyTorch (reconocimiento de señales)
-- YOLO (detección de objetos)
-- NumPy, PyYAML
-- Raspberry Pi OS
+- [Python 3.9+](https://www.python.org/downloads/)  
+- [OpenCV (visión por computadora)](https://opencv.org/)  
+- [TensorFlow](https://www.tensorflow.org/) / [PyTorch](https://pytorch.org/) (reconocimiento de señales)  
+- [YOLO (detección de objetos)](https://docs.ultralytics.com/)  
+- [NumPy](https://numpy.org/), [PyYAML](https://pyyaml.org/)  
+- [Raspberry Pi OS](https://www.raspberrypi.com/software/)
+
 
 ---
 
 ## Hardware
 
-- Raspberry Pi 4  
-- Cámara Raspberry Pi v2  
-- Controladora L298N  
-- 2x Motores con reductora N20  
-- Sensor ultrasónico HC-SR04  
-- Powerbank  
-- Petaca de pilas 4 AA
+- [Raspberry Pi 4](https://tienda.bricogeek.com/placas-raspberry-pi/1330-raspberry-pi-4-model-b-4-gb.html?_gl=1*z9559f*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO)
+- [Cámara Raspberry Pi v2 ](https://tienda.bricogeek.com/accesorios-raspberry-pi/823-camara-raspberry-pi-noir-v2-8-megapixels.html?_gl=1*1avbmpn*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO)
+- [Controladora L298N](https://tienda.bricogeek.com/motores/285-controlador-de-motores-doble-puente-h-l298.html?_gl=1*1avbmpn*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO) 
+- [2x Motores con reductora N20](https://tienda.bricogeek.com/motores/115-motor-micro-metal-dc-con-reductora-50-1.html?_gl=1*dud44b*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO)
+- [Sensor ultrasónico HC-SR04](https://tienda.bricogeek.com/sensores-distancia/741-sensor-de-distancia-por-ultrasonidos-hc-sr04.html?_gl=1*1avbmpn*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO)
+- [Powerbank]() 
+- [Petaca de pilas 4 AA](https://tienda.bricogeek.com/componentes/160-base-para-baterias-4xaa.html?utm_source=tienda&utm_medium=click&utm_campaign=prodrel&gclid=CjwKCAjw3_PCBhA2EiwAkH_j4iuGuv_6AWKE0E7OXbkjeWnEkRXGa-6T2kYbjGQ0lrQCCnmQOxNYghoCS0cQAvD_BwE&gbraid=0AAAAADkb14eYDWZQKLfN5T7XcqmyfW6sO)
 
 ---
 
