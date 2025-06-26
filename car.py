@@ -7,7 +7,7 @@ class Car:
         self.speed = 0.0
         self.max_speed = max_speed
         self.last_seen_lane = time.time()
-        self.brake_start_time = None
+        self.brake_start_time = 0.0
         self.steering_angle = 0.0
 
         # Pines motores (modo BOARD)
@@ -97,13 +97,20 @@ class Car:
                 self.state = "BRAKE"
                 self.brake_start_time = now
                 self.stop()
-            elif now - self.brake_start_time >= 2.0:
-                self.state = "CRUISE"
-                self.set_speed(self.max_speed, steering_angle)
-                self.brake_start_time = None
             else:
                 self.stop()
-                return self.state, self.speed
+            return self.state, self.speed
+
+        # Si coche esta frenado y ha pasado el tiempo
+        # y no tiene nada delante (hubiera entrado en el if previo)
+        # poner modo CRUISe y seguir circulando
+        
+        if self.state == "BRAKE":
+            if now - self.brake_start_time >= 2.0:
+                self.state = "CRUISE"
+                self.set_speed(self.max_speed, steering_angle)
+                self.brake_start_time = 0.0
+                
             return self.state, self.speed
 
         if action_brake_slow == "SLOW":

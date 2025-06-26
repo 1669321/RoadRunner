@@ -2,19 +2,21 @@ import cv2
 from utils_processing import *
 
 cv2.namedWindow("Original | Carriles Detectados", cv2.WINDOW_NORMAL)  # ventana redimensionable
-cv2.resizeWindow("Original | Carriles Detectados", 1000, 1000)          # tamaño deseado
+cv2.resizeWindow("Original | Carriles Detectados", 800, 800)          # tamaño deseado
 
-image = False
-video = True
+image = True
+video = False
 
 if image:
     # Cargar imagen original
-    #original = cv2.imread("./ims/im2.jpg")
-    #original = cv2.imread("./ims/im3.jpeg")
-    original = cv2.imread("./ims/im3.jpeg")
+    original = cv2.imread("./ims/im6.jpg")
 
     # Procesar para detectar carriles
-    processed, lane_detected, lateral_error, angle = detect_lane_center_poly(original.copy())
+    processed, lane_detected, lateral_error, angle, debug_ims = detect_lane_center_poly(original.copy())
+
+    cv2.imshow("objects_mask", debug_ims["objects_mask"])
+    
+
 
     # Dibujar el error lateral como texto en la imagen procesada
     cv2.putText(
@@ -47,7 +49,7 @@ if image:
 
 if video:
     # Ruta del video (puede ser un archivo .mp4 o un dispositivo cámara, ej: 0)
-    video_path = "./videos/vid2.mp4"
+    video_path = "./videos/line_detector.avi"
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():
@@ -59,7 +61,7 @@ if video:
         if not ret:
             break  # fin del video
 
-        processed, lane_detected, lateral_error, angle = detect_lane_center_poly(frame.copy())
+        processed, lane_detected, lateral_error, angle, debug_ims = detect_lane_center_poly(frame.copy())
 
         cv2.putText(
             processed,

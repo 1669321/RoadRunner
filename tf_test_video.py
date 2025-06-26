@@ -8,11 +8,12 @@ tflite_model_path = "./models/V2best_float16.tflite"
 video_path = "./videos/vid2.mp4"  # Cambia esto por el path de tu video
 input_size = 640
 yaml_path = "./detectors.yaml"
+output_video_path = "./output_detected.mp4"  # Archivo de salida
 
 # --- CARGAR LAS CLASES DESDE YAML ---
 with open(yaml_path, "r") as f:
     data = yaml.safe_load(f)
-class_names = data[0]["classes"]
+class_names = data["names"]
 
 def compute_iou(box, boxes):
     x_min = np.maximum(box[0], boxes[:, 0])
@@ -83,6 +84,15 @@ cap = cv2.VideoCapture(video_path)
 if not cap.isOpened():
     raise IOError(f"No se pudo abrir el video: {video_path}")
 
+# Obtener propiedades del video para VideoWriter
+fps = cap.get(cv2.CAP_PROP_FPS)
+frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+# Crear objeto VideoWriter
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec para .mp4
+out = cv2.VideoWriter(output_video_path, fourcc, fps, (frame_width, frame_height))
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -137,9 +147,13 @@ while True:
         cv2.putText(frame, label, (x1, max(y1 - 10, 0)),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
 
+    # Guardar frame en video de salida
+    out.write(frame)
+
     cv2.imshow("Video con detecciones", frame)
     if cv2.waitKey(1) & 0xFF == 27:  # ESC para salir
         break
 
 cap.release()
+out.release()
 cv2.destroyAllWindows()

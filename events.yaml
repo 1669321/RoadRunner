@@ -2,12 +2,40 @@
 Stop:
   action: BRAKE
 
-speed_*:
-  action: SET_SPEED
-  value: "parse_speed"
-
 Yield:
   action: SLOW
 
 Pedestrian:
   action: SLOW
+
+speed_100:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_120:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_20:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_50:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_30:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_60:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_70:
+  action: SET_SPEED
+  value: parse_speed
+
+speed_80:
+  action: SET_SPEED
+  value: parse_speed
