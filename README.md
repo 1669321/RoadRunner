@@ -121,11 +121,11 @@ RoadRunner/
 
 ## Ejemplos visuales
 
-| Detección de carril         | Reconocimiento de señal         |
-|----------------------------|----------------------------------|
-| ![lane](resultado/img.png) | ![sign](resultado/video.gif)     |
+###Ejemplo de reconocimiento de señal
+![sign](test/video.gif) 
 
-
+###Ejemplo detección de carril
+![lane](test/img.png)
 
 ---
 ## Estado del desarrollo
