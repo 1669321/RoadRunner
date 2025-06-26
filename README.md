@@ -1,122 +1,145 @@
-RoadRunner 🚗💨
 
-RoadRunner es un proyecto de conducción autónoma que permite a un coche mantenerse dentro del carril, detectar obstáculos y reconocer señales de tráfico usando visión por computadora.
+<!--
+README.md para RoadRunner
+Este archivo describe un sistema de conducción autónoma basado en Python
+y visión por computadora, inspirado en el estilo del proyecto PythonRobotics.
+-->
 
----
-
-Descripción
-
-RoadRunner es un sistema de control autónomo de vehículos que integra:
-- Detección y seguimiento de carril
-- Reconocimiento de señales de tráfico mediante modelos de deep learning
-- Detección de obstáculos con sensores ultrasónicos
-
-Este sistema está pensado para implementarse en hardware embebido (ej. Raspberry Pi) usando cámaras y sensores para adquisición de datos en tiempo real y control de motores.
+# RoadRunner 🚗💨  
+Sistema de conducción autónoma con visión por computadora
 
 ---
 
-Características principales
+## 📚 Tabla de contenidos
 
-- Seguimiento de carril con visión por computadora
-- Detección básica de obstáculos con sensor ultrasonido HC-SR04
-- Reconocimiento de señales de tráfico con PyTorch y modelos YOLO
-- Control de vehículo con controladora L298N y motores reductores
-
----
-
-Requisitos
-
-- Python 3.9 o superior
-- OpenCV
-- NumPy
-- PyYAML
-- PyTorch
-- YOLO (para detección de objetos)
-- Hardware: Raspberry Pi, sensor ultrasonido HC-SR04, controladora L298N
+- [¿Qué es RoadRunner?](#qué-es-roadrunner)
+- [Objetivos del proyecto](#objetivos-del-proyecto)
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Hardware](#hardware)
+- [Instalación](#instalación)
+- [Ejecución](#ejecución)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Ejemplos visuales](#ejemplos-visuales)
+- [Estado del desarrollo](#estado-del-desarrollo)
+- [Cómo contribuir](#cómo-contribuir)
+- [Licencia](#licencia)
+- [Autores](#autores)
 
 ---
 
-Instalación
+## ¿Qué es RoadRunner?
 
-Clona el repositorio y instala las dependencias:
+**RoadRunner** es un sistema de conducción autónoma desarrollado con Python y visión por computadora. Su objetivo es permitir que un vehículo se mantenga dentro del carril, detecte obstáculos y reconozca señales de tráfico en tiempo real, utilizando hardware accesible como la Raspberry Pi.
 
+---
+
+## Objetivos del proyecto
+
+- ✅ Mantener el coche dentro del carril de forma autónoma.  
+- ✅ Detectar obstáculos u objetos en la ruta.  
+- ✅ Reconocer señales de tráfico usando una cámara.
+
+---
+
+## Tecnologías utilizadas
+
+- Python 3.9+
+- OpenCV (visión por computadora)
+- TensorFlow / PyTorch (reconocimiento de señales)
+- YOLO (detección de objetos)
+- NumPy, PyYAML
+- Raspberry Pi OS
+
+---
+
+## Hardware
+
+- Raspberry Pi 4  
+- Cámara Raspberry Pi v2  
+- Controladora L298N  
+- 2x Motores con reductora N20  
+- Sensor ultrasónico HC-SR04  
+- Powerbank  
+- Petaca de pilas 4 AA
+
+---
+
+## Instalación
+
+```bash
 git clone https://github.com/1669321/RoadRunner.git
 cd RoadRunner
 pip install -r requirements.txt
+```
 
 ---
 
-Uso
+## Ejecución
 
-Conecta la cámara y sensores antes de ejecutar el sistema.
-
-Para iniciar la conducción autónoma:
-
+```bash
 python main.py
+```
 
-También puedes probar módulos específicos:
-
-- Detección de carril:
-  python test_line_detector.py
-- Reconocimiento de señales en imagen:
-  python tf_test.py
-- Reconocimiento de señales en video:
-  python tf_test_video.py
+> 💡 Asegúrate de tener conectada la cámara y los sensores antes de ejecutar el código.
 
 ---
 
-Estructura del proyecto
+## Estructura del proyecto
 
+```
 RoadRunner/
-├── car.py                  # Lógica principal del vehículo  
-├── main.py                 # Script principal de ejecución  
-├── lane_detector.py        # Módulo para detección de carril  
-├── overlay.py              # Visualización y superposición de información  
-├── priorities.py           # Gestión de prioridades entre eventos  
-├── events.yaml             # Configuración de eventos del coche  
-├── detectors.yaml          # Configuración de detectores  
-├── utils_processing.py     # Utilidades de procesamiento de imagen  
-├── tf_test.py              # Test de reconocimiento de señales en foto  
-├── tf_test_video.py        # Test de reconocimiento de señales en vídeo  
-├── test_line_detector.py   # Test de detección de carril  
-├── models/                 # Modelos entrenados (.pt)  
-├── ims/                    # Imágenes de prueba  
-├── videos/                 # Vídeos de prueba  
-├── lane_detector/          # Funciones y utilidades de detección de carril  
-├── requirements.txt        # Lista de dependencias  
-├── .gitignore              # Archivos ignorados por git  
-└── README.md               # Este archivo  
+├── main.py                  # Script principal
+├── car.py                   # Lógica del coche
+├── lane_detector.py         # Detección de carril
+├── overlay.py               # Visualización de datos
+├── priorities.py            # Gestión de eventos
+├── tf_test.py               # Prueba de señales (imagen)
+├── tf_test_video.py         # Prueba de señales (vídeo)
+├── test_line_detector.py    # Test de carril
+├── utils_processing.py      # Utilidades de imagen
+├── lane_detector/           # Módulo de carril
+├── models/                  # Modelos entrenados
+├── ims/                     # Imágenes de prueba
+├── videos/                  # Vídeos de ejemplo
+├── events.yaml              # Configuración de eventos
+├── detectors.yaml           # Configuración de detectores
+├── requirements.txt         # Dependencias
+└── README.md
+```
 
 ---
 
-Estado del desarrollo
+## Ejemplos visuales
 
-Funcionalidad                   | Estado      
------------------------------- | ----------- 
-Seguimiento de carril           | Completo   
-Detección básica de obstáculos  | Completo   
-Reconocimiento de señales       | Completo   
+| Detección de carril | Reconocimiento de señal |
+|---------------------|--------------------------|
+| ![lane](docs/img/lane.png) | ![sign](docs/img/sign.png) |
 
 ---
 
-Autores
+## Estado del desarrollo
+
+- [x] Seguimiento de carril funcional  
+- [x] Detección de obstáculos básica  
+- [x] Reconocimiento de señales de tráfico  
+
+---
+
+## Cómo contribuir
+
+¡Las contribuciones son bienvenidas! Puedes abrir un issue o enviar un pull request. Asegúrate de seguir buenas prácticas de codificación y documentar tus cambios.
+
+---
+
+## Licencia
+
+Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+
+---
+
+## Autores
 
 - Roger González  
 - Oriol Alarcón  
 - Pau Díaz  
-- Nil Caballero  
-
----
-
-Licencia
-
-Este proyecto está bajo la licencia MIT.
-
----
-
-Referencias
-
-- OpenCV: https://opencv.org/  
-- PyTorch: https://pytorch.org/  
-- YOLO: https://pjreddie.com/darknet/yolo/  
-"""
+- Nil Caballero
