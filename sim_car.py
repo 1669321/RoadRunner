@@ -9,6 +9,8 @@ class Car:
         self.brake_start_time = None  # Nuevo atributo para control de tiempo de frenado
         self.distance_sensor = 10.0  # valor simulado en metros (lejos)
         self.pwm_duty_cycle = 0  # simulación del PWM (0-100%)
+        self.steering_angle = 0.0
+
 
     def read_distance_sensor(self):
         # Simplemente devuelve el valor simulado

@@ -10,7 +10,7 @@ DEBUG = False
 
 car = Car()
 
-cap = cv2.VideoCapture('./videos/vid2.mp4')
+cap = cv2.VideoCapture(0)
 
 with open("detectors.yaml") as f:
     conf = yaml.safe_load(f)
@@ -31,12 +31,16 @@ def get_priority(cls_name):
     # Simplemente devuelve la prioridad según priorities.yaml o 100 si no está
     return priorities.get(cls_name, 100)
 
+# Variables para gestionar frenadas
+saw_stop_sign = False
+stop_triggered = False
+
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
 
-    # Copiasr para dibujo sin afectar el frame original usado en detección
+    # Copiar para dibujo sin afectar el frame original usado en detección
     frame_for_signs = frame.copy()
     frame_for_lanes = frame.copy()
 
@@ -50,6 +54,8 @@ while cap.isOpened():
     selected_brake_slow_priority = 1000
     max_speed_value = None
 
+    stop_visible = False
+
     for det in detections:
         cls_name = det["class"]
         if cls_name not in events:
@@ -58,10 +64,16 @@ while cap.isOpened():
         ev = events[cls_name]
         action = ev["action"]
 
+        # Marcar si se ha visto STOP (no frenar todavía)
+        if cls_name.lower() == "stop":
+            stop_visible = True
+
         if action in ["BRAKE", "SLOW"]:
+            # Evitar frenar en seco por STOP si aún está visible
+            if cls_name.lower() == "stop":
+                continue  # Lo gestionamos después aparte
+
             prio = get_priority(cls_name)
-            # Solo actualizamos si la prioridad es mejor (número menor)
-            # Sirve para decidir entre SLOW y BRAKE
             if prio < selected_brake_slow_priority:
                 selected_brake_slow_priority = prio
                 selected_brake_slow_action = action
@@ -78,16 +90,31 @@ while cap.isOpened():
                     speed_val = None
 
             if speed_val is not None:
-                # Escoger la velocidad máxima detectada 
                 if (max_speed_value is None) or (speed_val > max_speed_value):
                     max_speed_value = speed_val
+
+    # Control de reacción al Stop
+    if stop_visible:
+        saw_stop_sign = True
+        # Esperamos a estar a la altura del Stop para actuar
+        stop_triggered = False  
+    else:
+        if saw_stop_sign and not stop_triggered:
+            selected_brake_slow_action = "BRAKE"
+            stop_triggered = True
+            saw_stop_sign = False
 
     # Llamamos a update con las dos acciones separadas
     state, speed = car.update(
         lane_detected,
-        action_brake_slow=selected_brake_slow_action,
-        action_speed=max_speed_value
+        selected_brake_slow_action,
+        max_speed_value,
+        angle_deg
     )
+
+    # Si ya frenamos y el coche volvió a avanzar, permitimos volver a reaccionar a STOP
+    if stop_triggered and state != "BRAKE":
+        stop_triggered = False
 
     draw_overlay(combined_frame, car, detections, lateral_error, angle_deg)
 
