@@ -9,6 +9,7 @@ Sistema de conducción autónoma con visión por computador
 - [¿Qué es RoadRunner?](#qué-es-roadrunner)
 - [Objetivos del proyecto](#objetivos-del-proyecto)
 - [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Diseño 3d](#Diseño-3d)
 - [Hardware](#hardware)
 - [Instalación](#instalación)
 - [Ejecución](#ejecución)
@@ -43,6 +44,19 @@ Sistema de conducción autónoma con visión por computador
 - [YOLO (detección de objetos)](https://docs.ultralytics.com/)  
 - [NumPy](https://numpy.org/), [PyYAML](https://pyyaml.org/)  
 - [Raspberry Pi OS](https://www.raspberrypi.com/software/)
+
+---
+
+## Diseño 3d
+
+### Diseño del chasis  
+[![Chasis](Peces%203d/chasis.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Chassis.stl)
+
+### Diseño del sistema de rotación  
+[![SistemaRotacio](Peces%203d/eix%20rotacio.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Eix%20Rotacio.stl)
+
+### Diseño de las llantas  
+[![Llantas](Peces%203d/llantes.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Rodes.stl)
 
 
 ---
@@ -111,19 +125,6 @@ RoadRunner/
 |----------------------------|----------------------------------|
 | ![lane](resultado/img.png) | ![sign](resultado/video.gif)     |
 
-
----
-
-## Diseño 3d
-
-### Diseño del chasis  
-[![Chasis](Peces%203d/chasis.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Chassis.stl)
-
-### Diseño del sistema de rotación  
-[![SistemaRotacio](Peces%203d/eix%20rotacio.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Eix%20Rotacio.stl)
-
-### Diseño de las llantas  
-[![Llantas](Peces%203d/llantes.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Rodes.stl)
 
 
 ---
