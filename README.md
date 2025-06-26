@@ -112,9 +112,10 @@ RoadRunner/
 
 ## Ejemplos visuales
 
-| Detección de carril | Reconocimiento de señal |
-|---------------------|--------------------------|
-| ![lane](docs/img/lane.png) | ![sign](docs/img/sign.png) |
+| Detección de carril         | Reconocimiento de señal         |
+|----------------------------|----------------------------------|
+| ![lane](resultado/img.png) | ![sign](resultado/video.gif)     |
+
 
 ---
 
