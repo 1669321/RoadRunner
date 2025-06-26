@@ -38,10 +38,11 @@ Sistema de conducción autónoma con visión por computador
 
 ## Tecnologías utilizadas
 
-- [Python 3.9+](https://www.python.org/downloads/)  
+- [Python 3.10](https://www.python.org/downloads/) → Usado para entrenar YOLO v8 para reconocimiento de señales
+- [Python 3.12](https://www.python.org/downloads/) → Usado para el resto de funcionalidades y lógica
 - [OpenCV (visión por computadora)](https://opencv.org/)  
 - [TensorFlow](https://www.tensorflow.org/) / [PyTorch](https://pytorch.org/) (reconocimiento de señales)  
-- [YOLO (detección de objetos)](https://docs.ultralytics.com/)  
+- [YOLO (detección de objetos)](https://docs.ultralytics.com/) → Versiones v8 y v5
 - [NumPy](https://numpy.org/), [PyYAML](https://pyyaml.org/)  
 - [Raspberry Pi OS](https://www.raspberrypi.com/software/)
 
@@ -122,10 +123,18 @@ RoadRunner/
 ## Ejemplos visuales
 
 ###Ejemplo de reconocimiento de señal
-![sign](test/video.gif) 
+![sign](test/signsImage.jpg) 
+![sign](test/signDetection.gif) 
+![sign](test/signDetection04.gif) 
 
 ###Ejemplo detección de carril
-![lane](test/img.png)
+![lane](test/2.jpg)
+![lane](test/2Birds.jpg)
+![lane](test/2BirdsLanes.jpg)
+![lane](test/2Canny.jpg)
+![lane](test/2Mask.jpg)
+![lane](test/3.jpg)
+![lane](test/3ObjectMask.jpg)
 
 ---
 ## Estado del desarrollo
