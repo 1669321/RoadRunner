@@ -45,6 +45,7 @@ Sistema de conducción autónoma con visión por computador
 - [YOLO (detección de objetos)](https://docs.ultralytics.com/) → Versiones v8 y v5
 - [NumPy](https://numpy.org/), [PyYAML](https://pyyaml.org/)  
 - [Raspberry Pi OS](https://www.raspberrypi.com/software/)
+- [Dataset GTSRB de señales de tráfico](https://universe.roboflow.com/gtsrbanno/traffic-sign-detection-gtsrb/dataset/15) → Exportado para YOLO v8
 
 ---
 
