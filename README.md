@@ -1,10 +1,4 @@
 
-<!--
-README.md para RoadRunner
-Este archivo describe un sistema de conducción autónoma basado en Python
-y visión por computadora, inspirado en el estilo del proyecto PythonRobotics.
--->
-
 # RoadRunner  
 Sistema de conducción autónoma con visión por computador
 
@@ -29,7 +23,7 @@ Sistema de conducción autónoma con visión por computador
 
 ## ¿Qué es RoadRunner?
 
-**RoadRunner** es un sistema de conducción autónoma desarrollado con Python y visión por computadora. Su objetivo es permitir que un vehículo se mantenga dentro del carril, detecte obstáculos y reconozca señales de tráfico en tiempo real, utilizando hardware accesible como la Raspberry Pi.
+**RoadRunner** es un sistema de conducción autónoma desarrollado con Python y visión por computador. Su objetivo es permitir que un vehículo se mantenga dentro del carril, detecte obstáculos y reconozca señales de tráfico en tiempo real, utilizando hardware accesible como la Raspberry Pi.
 
 ---
 
@@ -125,11 +119,6 @@ RoadRunner/
 - [x] Detección de obstáculos básica  
 - [x] Reconocimiento de señales de tráfico  
 
----
-
-## Cómo contribuir
-
-¡Las contribuciones son bienvenidas! Puedes abrir un issue o enviar un pull request. Asegúrate de seguir buenas prácticas de codificación y documentar tus cambios.
 
 ---
 
