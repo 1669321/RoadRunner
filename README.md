@@ -17,7 +17,6 @@ Sistema de conducción autónoma con visión por computador
 - [Ejemplos visuales](#ejemplos-visuales)
 - [Estado del desarrollo](#estado-del-desarrollo)
 - [Simulación de funcionamiento](#simulacion-de-funcionamiento)
-- [Cómo contribuir](#cómo-contribuir)
 - [Licencia](#licencia)
 - [Autores](#autores)
 
