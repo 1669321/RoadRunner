@@ -117,7 +117,7 @@ RoadRunner/
 ## Diseño 3d
 ![Chasis](Peces%203d/chasis.png)
 
-
+![SistemaRotacio](Peces%203d/eix%20rotacio.png)
 
 ---
 ## Estado del desarrollo
