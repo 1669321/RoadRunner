@@ -169,9 +169,9 @@ RoadRunner/
 ---
 ## Estado del desarrollo
 
-- [x] Seguimiento de carril funcional  
-- [x] Detección de obstáculos básica  
-- [x] Reconocimiento de señales de tráfico  
+- ✅ Seguimiento de carril funcional  
+- ✅ Detección de obstáculos básica  
+- ✅ Reconocimiento de señales de tráfico  
 
 
 ---
