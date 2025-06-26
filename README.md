@@ -115,9 +115,15 @@ RoadRunner/
 ---
 
 ## Diseño 3d
+
+Diseño del chasis
 ![Chasis](Peces%203d/chasis.png)
 
+Diseño del sistema de rotación
 ![SistemaRotacio](Peces%203d/eix%20rotacio.png)
+
+Diseño de las llantas
+![Chasis](Peces%203d/llantes.png)
 
 ---
 ## Estado del desarrollo
