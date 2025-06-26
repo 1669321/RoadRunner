@@ -5,12 +5,12 @@ Este archivo describe un sistema de conducción autónoma basado en Python
 y visión por computadora, inspirado en el estilo del proyecto PythonRobotics.
 -->
 
-# RoadRunner 🚗💨  
+# RoadRunner  
 Sistema de conducción autónoma con visión por computadora
 
 ---
 
-## 📚 Tabla de contenidos
+## Tabla de contenidos
 
 - [¿Qué es RoadRunner?](#qué-es-roadrunner)
 - [Objetivos del proyecto](#objetivos-del-proyecto)
