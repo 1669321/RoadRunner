@@ -177,7 +177,7 @@ RoadRunner/
 
 ---
 ## Simulación de funcionamiento
-![sim](test/simulationRun04.mp4)
+![sim](test/simulationRun04.gif)
 
 ### Observaciones:
 
