@@ -16,6 +16,7 @@ Sistema de conducción autónoma con visión por computador
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Ejemplos visuales](#ejemplos-visuales)
 - [Estado del desarrollo](#estado-del-desarrollo)
+- [Simulación de funcionamiento](#simulacion-de-funcionamiento)
 - [Cómo contribuir](#cómo-contribuir)
 - [Licencia](#licencia)
 - [Autores](#autores)
@@ -173,6 +174,22 @@ RoadRunner/
 - ✅ Detección de obstáculos básica  
 - ✅ Reconocimiento de señales de tráfico  
 
+
+---
+## Simulación de funcionamiento
+![sim](test/simulationRun04.mp4)
+
+### Observaciones:
+
+La perspectiva del vídeo es en ojo de pez, por lo que la detección de líneas no puede funcionar correctamente, o se dibujan deformadas.
+
+En cuanto a la detección de señales hay algunas, como la de límite de velocidad a 10, que no están en el dataset de entrenamiento y, por lo tanto, no las detecta correctamente (detecta otro valor).
+
+En este vídeo vemos, a tiempo real el cambio de estados del coche, velocidad máxima y todas las detecciones que realiza.
+
+Finalmente, destacar que hay momentos donde el vídeo se para. Esto es debido a la implementación de los STOP. En este caso, el robot al detectar la señal se pone en modo BREAK y, cuando esta sale del plano,
+se para (entendiendo que hemos llegado a la altura de la señal). Sin embargo, en este vídeo, al ser tan rápido, no se aprecia del todo bien pero eso es lo que está sucediendo. Una vez el robot ha hecho el STOP,
+2 segundos de detención completa, este vuelve a reanudar su marcha si no detecta obstáculos.
 
 ---
 
