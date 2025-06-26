@@ -23,7 +23,6 @@ def detect_lane_center_poly(frame):
     clean_frame, mask_objects = mask_detected_objects(frame)
     height, width = clean_frame.shape[:2]
 
-    # Definir puntos para bird's eye view
     src = np.float32([
         [width * 0.45, height * 0.63],
         [width * 0.55, height * 0.63],
@@ -43,7 +42,6 @@ def detect_lane_center_poly(frame):
 
     birdseye = cv2.warpPerspective(clean_frame, M, (width, height))
 
-    # Función para aislar las líneas blancas
     def isolate_white_lane(img):
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         h, s, v = cv2.split(hsv)
@@ -89,12 +87,15 @@ def detect_lane_center_poly(frame):
             break
 
     if not lane_detected:
-        cv2.imshow("Mask White Filter", mask)
-        cv2.imshow("Edges Canny", edges)
-        cv2.imshow("Bird's Eye View", birdseye)
-        cv2.imshow("Masked Edges", np.zeros_like(edges))
-        cv2.imshow("Objects Mask", mask_objects)
-        return frame, False, 0, 0
+        # Retornamos imágenes para debug aunque no detectó carril
+        debug_imgs = {
+            "mask_white_filter": mask,
+            "edges_canny": edges,
+            "birdseye": birdseye,
+            "birdseye_with_lines": np.zeros_like(birdseye),
+            "objects_mask": mask_objects
+        }
+        return frame, False, 0, 0, debug_imgs
 
     ys, xs = np.where(masked_edges != 0)
 
@@ -148,12 +149,10 @@ def detect_lane_center_poly(frame):
     pts_center = np.array(pts_center, np.int32).reshape((-1, 1, 2))
     cv2.polylines(line_img, [pts_center], isClosed=False, color=(0, 255, 255), thickness=3)
 
-    # Warp inverso para volver a la perspectiva original
     line_img_warped_back = cv2.warpPerspective(line_img, Minv, (width, height))
 
     combo = cv2.addWeighted(frame, 0.8, line_img_warped_back, 1, 1)
 
-    # Calcular posición del carril en la parte inferior de la imagen birdseye
     if left_fit is not None and right_fit is not None:
         left_x_bottom = int(np.polyval(left_fit, height_be))
         right_x_bottom = int(np.polyval(right_fit, height_be))
@@ -167,7 +166,6 @@ def detect_lane_center_poly(frame):
 
     lateral_error = lane_center - car_center
 
-    # Calcular ángulo de la curva en la parte inferior
     y_eval = height_be
     y_delta = 10
     if left_fit is not None and right_fit is not None:
@@ -188,11 +186,12 @@ def detect_lane_center_poly(frame):
     angle_rad = np.arctan2(dx, dy)
     angle_deg = np.degrees(angle_rad)
 
-    # Mostrar imágenes para debug
-    cv2.imshow("Mask White Filter", mask)
-    cv2.imshow("Edges Canny", edges)
-    cv2.imshow("Bird's Eye View", birdseye)
-    cv2.imshow("Bird's Eye with Lines", line_img)
-    cv2.imshow("Objects Mask", mask_objects)
+    debug_imgs = {
+        "mask_white_filter": mask,
+        "edges_canny": edges,
+        "birdseye": birdseye,
+        "birdseye_with_lines": line_img,
+        "objects_mask": mask_objects
+    }
 
-    return combo, lane_detected, lateral_error, angle_deg
+    return combo, lane_detected, lateral_error, angle_deg, debug_imgs

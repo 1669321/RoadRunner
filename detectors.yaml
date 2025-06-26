@@ -1,49 +1,47 @@
-# detectors.yaml
-- name: traffic_signs
-  weights: models/traffic_signs.tflite
-  classes:
-    [
-      "Beaware of icesnow",
-      "Bumpy road",
-      "Dangerous curve left",
-      "Double curve",
-      "End Speed - Passing limits",
-      "End no passing veh 3.5 tons",
-      "End of no passing",
-      "General caution",
-      "Go Stright or Left",
-      "Go Stright or Right",
-      "Keep Left",
-      "Keep Right",
-      "No entry",
-      "No passing veh over 3.5 tons",
-      "No passing",
-      "No vehicles",
-      "pedestrian",
-      "Right-of-way at intersection",
-      "Road Narrows on The Right",
-      "Road Work",
-      "Slippery road",
-      "Traffic Signals",
-      "Turn Right Ahead",
-      "Wild Animals Crossing",
-      "yield",
-      "ahead only",
-      "bycycle crossing",
-      "children crossing",
-      "eof speed limit 80",
-      "priority road",
-      "roundabout Mandatory",
-      "speed_100",
-      "speed_120",
-      "speed_20",
-      "speed_50",
-      "speed_30",
-      "speed_60",
-      "speed_70",
-      "speed_80",
-      "stop",
-      "turn left ahead",
-      "veh-3.5 tons is prohibited",
-    ]
-  imgsz: 640
+train: ./train/images
+val: ./valid/images
+
+nc: 42
+names:
+  - Beware of icesnow
+  - Bumpy road
+  - Dangerous curve left
+  - Double curve
+  - End Speed - Passing limits
+  - End no passing veh 3.5 tons
+  - End of no passing
+  - General caution
+  - Go Straight or Left
+  - Go Straight or Right
+  - Keep Left
+  - Keep Right
+  - No entry
+  - No passing veh over 3.5 tons
+  - No passing
+  - No vehicles
+  - Pedestrian
+  - Right-of-way at intersection
+  - Road Narrows on The Right
+  - Road Work
+  - Slippery road
+  - Traffic Signals
+  - Turn Right Ahead
+  - Wild Animals Crossing
+  - Yield
+  - ahead only
+  - bycycle crossing
+  - children crossing
+  - eof speed limit 80
+  - priority road
+  - roundabout Mandatory
+  - speed_100
+  - speed_120
+  - speed_20
+  - speed_50
+  - speed_30
+  - speed_60
+  - speed_70
+  - speed_80
+  - Stop
+  - turn left ahead
+  - veh-3.5 tons is prohibited

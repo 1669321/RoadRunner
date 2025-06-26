@@ -1,77 +1,37 @@
 import time
-import RPi.GPIO as GPIO
 
 class Car:
-    def __init__(self, pwm_pin=18, dir_pin=23, max_speed=100):
+    def __init__(self, max_speed=100):
         self.state = "SCAN"
         self.speed = 0.0
         self.max_speed = max_speed
         self.last_seen_lane = time.time()
         self.brake_start_time = None  # Nuevo atributo para control de tiempo de frenado
-
-        # Pines GPIO
-        self.pwm_pin = pwm_pin
-        self.dir_pin = dir_pin
-
-        # Pines sensor distancia
-        self.trig_pin = 40
-        self.echo_pin = 38
-
-        # Setup GPIO
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.pwm_pin, GPIO.OUT)
-        GPIO.setup(self.dir_pin, GPIO.OUT)
-        GPIO.setup(self.trig_pin, GPIO.OUT)
-        GPIO.setup(self.echo_pin, GPIO.IN)
-
-        # PWM para velocidad
-        self.pwm = GPIO.PWM(self.pwm_pin, 100)
-        self.pwm.start(0)  # velocidad inicial 0%
-
-        # Dirección adelante (puedes ajustar si es necesario)
-        GPIO.output(self.dir_pin, GPIO.HIGH)
-
-        # Asegurar que el TRIG esté en bajo al inicio
-        GPIO.output(self.trig_pin, False)
-        time.sleep(0.05)
-
+        self.distance_sensor = 10.0  # valor simulado en metros (lejos)
+        self.pwm_duty_cycle = 0  # simulación del PWM (0-100%)
 
     def read_distance_sensor(self):
-        # Enviar pulso
-        GPIO.output(self.trig_pin, True)
-        time.sleep(0.00001)
-        GPIO.output(self.trig_pin, False)
-
-        # Esperar señal de inicio
-        while GPIO.input(self.echo_pin) == 0:
-            start_time = time.time()
-
-        # Esperar señal de fin
-        while GPIO.input(self.echo_pin) == 1:
-            end_time = time.time()
-
-        duration = end_time - start_time
-        distance_cm = duration * 17150
-        distance_cm = round(distance_cm + 1.15, 2)  # Compensación del sensor
-        distance_m = distance_cm / 100.0
-
-        return distance_m
-
+        # Simplemente devuelve el valor simulado
+        return self.distance_sensor
 
     def set_speed_pwm(self, speed):
-        duty_cycle = max(0, min(speed / self.max_speed * 100, 100))
-        self.pwm.ChangeDutyCycle(duty_cycle)
+        # Limitar speed a max_speed
+        speed = max(0, min(speed, self.max_speed))
+        # Simula cambio de duty cycle proporcional a speed
+        self.pwm_duty_cycle = speed / self.max_speed * 100
         self.speed = speed
+        print(f"[SIM] Velocidad ajustada a {self.speed:.2f} (PWM {self.pwm_duty_cycle:.1f}%)")
 
     def stop(self):
-        # Simplemente dejar de acelerar (0% duty cycle)
         self.set_speed_pwm(0)
+        print("[SIM] Parando el coche")
 
     def update(self, lane_detected, action_brake_slow=None, action_speed=None):
         now = time.time()
         distance_sensor = self.read_distance_sensor()
 
         if action_speed is not None and action_speed != self.max_speed:
+            print("MODIFICANDO VELOCIDAD", action_speed)
             self.max_speed = action_speed
             if self.state in ["CRUISE", "SLOW"]:
                 self.set_speed_pwm(self.max_speed)
@@ -84,7 +44,7 @@ class Car:
                 self.stop()
             else:
                 # Estamos en BRAKE, revisar si ya pasó el tiempo de stop
-                if now - self.brake_start_time >= 2.0: 
+                if now - self.brake_start_time >= 2.0:  # 2 segundos de frenado
                     self.state = "CRUISE"
                     self.set_speed_pwm(self.max_speed)
                     self.brake_start_time = None
@@ -122,5 +82,4 @@ class Car:
 
     def cleanup(self):
         self.stop()
-        self.pwm.stop()
-        GPIO.cleanup()
+        print("[SIM] Cleanup llamado")

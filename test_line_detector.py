@@ -4,8 +4,8 @@ from utils_processing import *
 cv2.namedWindow("Original | Carriles Detectados", cv2.WINDOW_NORMAL)  # ventana redimensionable
 cv2.resizeWindow("Original | Carriles Detectados", 1000, 1000)          # tamaño deseado
 
-image = True
-video = False
+image = False
+video = True
 
 if image:
     # Cargar imagen original
@@ -47,7 +47,7 @@ if image:
 
 if video:
     # Ruta del video (puede ser un archivo .mp4 o un dispositivo cámara, ej: 0)
-    video_path = "./videos/vid1.mp4"
+    video_path = "./videos/vid2.mp4"
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():

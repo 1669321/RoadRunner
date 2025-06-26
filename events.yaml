@@ -1,13 +1,13 @@
 # events.yaml
-stop:
+Stop:
   action: BRAKE
 
 speed_*:
   action: SET_SPEED
   value: "parse_speed"
 
-yield:
+Yield:
   action: SLOW
 
-pedestrian:
-  action: BRAKE
+Pedestrian:
+  action: SLOW
