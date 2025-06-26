@@ -94,6 +94,7 @@ RoadRunner/
 ├── utils_processing.py      # Utilidades de imagen
 ├── lane_detector/           # Módulo de carril
 ├── models/                  # Modelos entrenados
+├── Peces 3d/                # Piezas diseñadas para imprimir en 3d y montar el coche
 ├── ims/                     # Imágenes de prueba
 ├── videos/                  # Vídeos de ejemplo
 ├── events.yaml              # Configuración de eventos
@@ -113,6 +114,11 @@ RoadRunner/
 
 ---
 
+## Diseño 3d
+![lane](Peces3d/chasis.png)
+
+
+---
 ## Estado del desarrollo
 
 - [x] Seguimiento de carril funcional  
