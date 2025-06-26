@@ -124,28 +124,46 @@ RoadRunner/
 
 ### Ejemplo de reconocimiento de señal
 ![sign](test/signsImage.jpg) 
+
 *Ejemplo real de detección de señales*
+
 ![sign](test/signDetection.gif) 
+
 *Video demostrativo velocidad de detección. Origen: https://www.kaggle.com/code/pkdarabi/traffic-signs-detection-using-yolov8*
+
 ![sign](test/signDetection04.gif) 
+
 *Video demostrativo velocidad de detección, a velocidad x0.4*
+
 ### Ejemplo detección de carril
 ![lane](test/2.jpg)
+
 *Imagen resultado de detección de carril*
+
 #### Pasos Seguidos
 ![lane](test/2Birds.jpg)
+
 *Transformación a vista de pájaro*
+
 ![lane](test/2Mask.jpg)
+
 *Filtrado por color de la imagen*
+
 ![lane](test/2Canny.jpg)
+
 *Detector de contornos mediante Canny*
+
 ![lane](test/2BirdsLanes.jpg)
+
 *Líneas resultantes después de ajustar con polinomio de 2º grado*
 
 ### Ejemplo 2 de detección de carril
 ![lane](test/3.jpg)
+
 *Imagen resultado de detección de carril*
+
 ![lane](test/3ObjectMask.jpg)
+
 *Máscara de filtrado de objetos antes de detectar líneas*
 
 ---
