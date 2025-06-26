@@ -117,13 +117,13 @@ RoadRunner/
 ## Diseño 3d
 
 ### Diseño del chasis  
-![Chasis](Peces%203d/chasis.png)
+[![Chasis](Peces%203d/chasis.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Chassis.stl)
 
 ### Diseño del sistema de rotación  
-![SistemaRotacio](Peces%203d/eix%20rotacio.png)
+[![SistemaRotacio](Peces%203d/eix%20rotacio.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Eix%20Rotacio.stl)
 
 ### Diseño de las llantas  
-![Llantas](Peces%203d/llantes.png)
+[![Llantas](Peces%203d/llantes.png)](https://github.com/1669321/RoadRunner/blob/main/Peces%203d/Rodes.stl)
 
 
 ---
