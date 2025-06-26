@@ -4,72 +4,70 @@ RoadRunner es un proyecto de conducción autónoma que permite a un coche manten
 
 ---
 
-Tabla de Contenidos
+Descripción
 
-- Qué es RoadRunner?
-- Requisitos
-- Cómo usar
-- Características
-- Estructura del proyecto
-- Estado del desarrollo
-- Autores
-- Licencia
+RoadRunner es un sistema de control autónomo de vehículos que integra:
+- Detección y seguimiento de carril
+- Reconocimiento de señales de tráfico mediante modelos de deep learning
+- Detección de obstáculos con sensores ultrasónicos
+
+Este sistema está pensado para implementarse en hardware embebido (ej. Raspberry Pi) usando cámaras y sensores para adquisición de datos en tiempo real y control de motores.
 
 ---
 
-Qué es RoadRunner?
+Características principales
 
-RoadRunner es un sistema diseñado para el control autónomo de un vehículo, que integra detección de carril, reconocimiento de señales de tráfico y detección de obstáculos mediante sensores y visión por computadora.
-
-Este proyecto está pensado para implementarse en hardware embebido, como Raspberry Pi, con sensores y cámaras para la adquisición de datos en tiempo real.
+- Seguimiento de carril con visión por computadora
+- Detección básica de obstáculos con sensor ultrasonido HC-SR04
+- Reconocimiento de señales de tráfico con PyTorch y modelos YOLO
+- Control de vehículo con controladora L298N y motores reductores
 
 ---
 
 Requisitos
 
-Para ejecutar el proyecto, se necesitan las siguientes librerías y software:
-
-- Python 3.9 o superior  
-- OpenCV  
-- NumPy  
-- PyYAML  
-- PyTorch (para los modelos .pt)  
-- YOLO (para detección de objetos)  
-- Otros sensores y controladores (Raspberry Pi, sensor ultrasonido HC-SR04, controladora L298N)  
+- Python 3.9 o superior
+- OpenCV
+- NumPy
+- PyYAML
+- PyTorch
+- YOLO (para detección de objetos)
+- Hardware: Raspberry Pi, sensor ultrasonido HC-SR04, controladora L298N
 
 ---
 
-Cómo usar
+Instalación
 
-1. Clonar el repositorio:
+Clona el repositorio y instala las dependencias:
 
-    git clone https://github.com/1669321/RoadRunner.git  
-    cd RoadRunner  
-
-2. Instalar dependencias:
-
-    pip install -r requirements.txt  
-
-3. Ejecutar el sistema:
-
-    python main.py  
-
-> Asegúrate de tener conectada la cámara y sensores antes de iniciar.
+git clone https://github.com/1669321/RoadRunner.git
+cd RoadRunner
+pip install -r requirements.txt
 
 ---
 
-Características
+Uso
 
-- Seguimiento de carril con visión por computadora.  
-- Detección básica de obstáculos con sensores ultrasónicos.  
-- Reconocimiento de señales de tráfico con modelos de deep learning.  
-- Control del vehículo mediante controladora L298N y motores reductores.  
+Conecta la cámara y sensores antes de ejecutar el sistema.
+
+Para iniciar la conducción autónoma:
+
+python main.py
+
+También puedes probar módulos específicos:
+
+- Detección de carril:
+  python test_line_detector.py
+- Reconocimiento de señales en imagen:
+  python tf_test.py
+- Reconocimiento de señales en video:
+  python tf_test_video.py
 
 ---
 
 Estructura del proyecto
 
-RoadRunner/  
+RoadRunner/
 ├── car.py                  # Lógica principal del vehículo  
 ├── main.py                 # Script principal de ejecución  
 ├── lane_detector.py        # Módulo para detección de carril  
@@ -84,7 +82,7 @@ RoadRunner/
 ├── models/                 # Modelos entrenados (.pt)  
 ├── ims/                    # Imágenes de prueba  
 ├── videos/                 # Vídeos de prueba  
-├── lane_detector/          # Módulo con funciones para detección de carril  
+├── lane_detector/          # Funciones y utilidades de detección de carril  
 ├── requirements.txt        # Lista de dependencias  
 ├── .gitignore              # Archivos ignorados por git  
 └── README.md               # Este archivo  
@@ -93,9 +91,11 @@ RoadRunner/
 
 Estado del desarrollo
 
-- [x] Seguimiento de carril funcional  
-- [x] Detección básica de obstáculos  
-- [x] Reconocimiento de señales de tráfico  
+Funcionalidad                   | Estado      
+------------------------------ | ----------- 
+Seguimiento de carril           | Completo   
+Detección básica de obstáculos  | Completo   
+Reconocimiento de señales       | Completo   
 
 ---
 
@@ -110,6 +110,13 @@ Autores
 
 Licencia
 
-Este proyecto está bajo licencia MIT.
+Este proyecto está bajo la licencia MIT.
 
 ---
+
+Referencias
+
+- OpenCV: https://opencv.org/  
+- PyTorch: https://pytorch.org/  
+- YOLO: https://pjreddie.com/darknet/yolo/  
+"""
